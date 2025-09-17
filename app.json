@@ -1,15 +1,16 @@
 {
   "expo": {
-    "name": "expoflatlist",
-    "slug": "expoflatlist",
+    "name": "expoflatlistnw",
+    "slug": "expoflatlistnw",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "expoflatlist",
+    "scheme": "expoflatlistnw",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.denniske1001.expoflatlistnw"
     },
     "android": {
       "adaptiveIcon": {
