@@ -1,6 +1,6 @@
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import {useState} from "react";
-import {Text2} from "@/components/text";
+import {Text2, Text3} from "@/components/text";
 
 export default function HomeScreen() {
     const tabs = ['Home', 'Search', 'Notifications', 'Messages', 'Profile', 'Settings', 'Help', 'About', 'Contact', 'Feedback'];
@@ -23,6 +23,11 @@ export default function HomeScreen() {
                         >
                             {tab}
                         </Text2>
+                        <Text3
+                            className={`${activeTab === index ? 'text-red-500' : 'text-yellow-500'}`}
+                        >
+                            {tab}
+                        </Text3>
                     </Pressable>
                 ))
             }
