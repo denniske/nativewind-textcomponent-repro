@@ -1,32 +1,32 @@
-import {FlatList, Pressable, StyleSheet, Text, View} from 'react-native';
-import {useRef} from "react";
+import {Pressable, StyleSheet, Text, View} from 'react-native';
+import {useState} from "react";
+import {Text2} from "@/components/text";
 
 export default function HomeScreen() {
-    const flatListRef = useRef<FlatList>(null);
-
-    const scrollToOffset = (offset: number) => {
-        console.log('scrollToOffset', offset);
-        flatListRef.current?.scrollToOffset({offset, animated: false});
-    }
-
+    const tabs = ['Home', 'Search', 'Notifications', 'Messages', 'Profile', 'Settings', 'Help', 'About', 'Contact', 'Feedback'];
+    const [ activeTab, setActiveTab] = useState(0);
     return (
         <View
             style={{flex: 1, flexDirection: 'column', paddingTop:60}}
         >
-            <Pressable onPress={() => scrollToOffset(200)} style={{backgroundColor:'lightblue', padding: 10, margin: 10, borderRadius: 5}}>
-                <Text>Scroll To Offset 200</Text>
-            </Pressable>
-            <FlatList
-                ref={flatListRef}
-                style={{flex: 1}}
-                data={[...Array(100).keys()]}
-                keyExtractor={(item) => item.toString()}
-                renderItem={({item}) => (
-                    <View style={{padding: 10, borderBottomWidth: 1, borderBottomColor: '#ccc'}}>
-                        <Text style={{}}>Item {item}</Text>
-                    </View>
-                )}
-            />
+            {
+                tabs.map((tab, index) => (
+                    <Pressable key={index} onPress={() => setActiveTab(index)} style={{marginBottom: 20}}>
+                        <Text
+                            className={`${activeTab === index ? 'text-red-500' : 'text-yellow-500'}`}
+                            style={[{fontSize: 20, textAlign: 'center'}]}
+                        >
+                            {tab}
+                        </Text>
+                        <Text2
+                            className={`${activeTab === index ? 'text-red-500' : 'text-yellow-500'}`}
+                        >
+                            {tab}
+                        </Text2>
+                    </Pressable>
+                ))
+            }
+            <Text>{activeTab}</Text>
         </View>
     );
 }
